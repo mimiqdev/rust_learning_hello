@@ -1,46 +1,23 @@
-// Static VARIABLE
-static MY_STATIC: i32 = 10;
-static mut MY_MUT_STATIC: i32 = 11;
+fn main(){
+    // 不同进制
+    let a1 = -125;
+    let a2 = 0xFF;
+    let a3 = 0o13;
+    let a4 = 0b10;
+    println!("{a1}, {a2}, {a3}, {a4}");
 
-fn main() {
-    /*
-    Immutable var
-    naming convention: snake naming
-    */
-    let _nice_count = 100;
+    // Max & Min
+    println!("u32 max: {}", u32::MAX);
+    println!("u32 min: {}", u32::MIN);
+    println!("i32 max: {}", i32::MAX);
+    println!("i32 min: {}", i32::MIN);
+    println!("u64 max: {}", u64::MAX);
+    println!("usize max: {}", usize::MAX);
+    println!("usize min: {}", usize::MIN);
 
-    /* mutable var */
-    let mut _count = 3; // unused warning can be dismissed by prefix '_'
-    _count = 4;
-
-    // Shadowing
-    let x = 5;
-    {
-        // anonymous naming space
-        let x: i64 = 10;
-        println!("Inner x: {}", x);
-        // inner x will be destroyed
-    }
-    println!("Outer x: {x}");
-
-    let x = "Hello"; // re-create var
-    println!("New x: {x}");
-
-    // Constant
-    const SECOND_HOUR: usize = 3600;
-    const SECOND_DAY: usize = 24 * SECOND_HOUR;
-
-    {
-        const SE: usize = 1000;
-        println!("SE: {SE}");
-    }
-
-    // println!("{SE}"); // ERROR
-    println!("Seconds per day: {}", SECOND_DAY);
-    println!("My static, {}", MY_STATIC);
-    unsafe {
-        MY_MUT_STATIC = 31;
-        println!("MY mutable static, {MY_MUT_STATIC}");
-    }
-    // println!("MY mutable static, {MY_MUT_STATIC}"); // ERROR
+    println!("isize is {} bytes", std::mem::size_of::<isize>());
+    println!("usize is {} bytes", std::mem::size_of::<usize>());
+    println!("i32 is {} bytes", std::mem::size_of::<i32>());
+    println!("i64 is {} bytes", std::mem::size_of::<i64>());
+    println!("u64 is {} bytes", std::mem::size_of::<u64>());
 }
